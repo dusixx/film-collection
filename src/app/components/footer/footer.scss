@@ -1,0 +1,20 @@
+@use 'utils';
+
+:host {
+  margin-top: auto;
+}
+
+.wrapper {
+  @extend %wrapper;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-accent);
+  font-weight: bold;
+}

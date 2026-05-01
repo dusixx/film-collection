@@ -1,0 +1,17 @@
+@let f = film();
+
+<article class="film-card" (click)="handleClick()">
+  <div class="film-card__header">
+    <button class="film-card__btn" type="button" (click)="handleFavoriteToggle($event)">{{f.isFavorite ? '💙' :
+      '🤍'}}</button>
+    <span class="film-card__rating">{{f.rating}}</span>
+  </div>
+  <div class="film-card__thumb">
+    <img [src]=" f.posterUrl" [alt]="f.title" loading="lazy">
+  </div>
+  <div class="film-card__info">
+    <h3>{{f.title}}</h3>
+    <span>Year: {{f.year}}</span>
+    <span>Genre: {{f.genre}}</span>
+  </div>
+</article>
