@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <input type="search" class="search-box" appAutofocus placeholder="Search by title..." [value]="searchQuery()"
+    (input)="handleInput($event)">
+  @if (!filteredFilms().length) {
+  <p class="message">Nothing was found for the request "<b>{{searchQuery()}}"</b></p>
+  } @else {
+  <ul class="film-cards">
+    @for (film of filteredFilms(); track film.id) {
+    <li class="film-cards__item">
+      <app-film-card [film]="film" (favoriteToggled)="toggleFavorite($event)" (cardClicked)="showDetails($event)" />
+    </li>
+    }
+  </ul>
+  }
+</div>

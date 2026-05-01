@@ -1,0 +1,44 @@
+@use 'utils';
+
+.wrapper {
+  margin: 40px 0;
+}
+
+.search-box {
+  @extend %text-input;
+  width: 60%;
+  margin: auto;
+}
+
+.message {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.film-cards {
+  --items-per-row: 4;
+  --gap: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  margin-top: 40px;
+
+  &__item {
+    flex-basis: calc((100% - (var(--items-per-row) - 1) * var(--gap)) / var(--items-per-row));
+    min-width: 150px;
+    background-color: white;
+
+    @media (width <= 768px) {
+      --items-per-row: 3;
+    }
+    @media (width <= 570px) {
+      --items-per-row: 2;
+    }
+  }
+}
