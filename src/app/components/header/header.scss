@@ -6,6 +6,7 @@
 
 .wrapper {
   @extend %wrapper;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,11 +21,12 @@
 
 .nav {
   display: flex;
-  gap: 20px;
+
   a {
-    padding: 14px;
+    padding: 16px 20px;
     color: var(--color-white);
     text-decoration: none;
+
     &.active {
       background-color: var(--color-accent);
     }

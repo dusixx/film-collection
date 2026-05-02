@@ -1,17 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@use 'modern-normalize';
+@use "modern-normalize";
 
 :root {
-  --wrapper-max-width: 1024px;
+  --wrapper-max-width: 1440px;
   --wrapper-min-width: 380px;
-  --color-black: rgb(23, 24, 28);
+  --color-black: rgb(23 24 28);
   --color-black-10: rgb(23 24 28 10%);
-  --color-accent: rgb(33, 109, 208);
-  --color-blue-light: rgb(144, 190, 250);
-  --color-white: rgb(255, 255, 255);
-  --color-orange: rgb(255, 106, 0);
-  --color-gray-light: rgb(237, 237, 237);
-  --color-gray: rgb(214, 214, 214);
+  --color-accent: rgb(33 109 208);
+  --color-blue-light: rgb(196, 221, 255);
+  --color-white: rgb(255 255 255);
+  --color-orange: rgb(255 106 0);
+  --color-gray-light: rgb(237 237 237);
+  --color-gray: rgb(214 214 214);
 }
 
 html,
@@ -34,4 +34,10 @@ h3 {
 
 ul {
   list-style: none;
+}
+
+img {
+  display: block;
+  height: auto;
+  width: 100%;
 }

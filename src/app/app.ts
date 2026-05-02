@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Breadcrumbs } from './components/breadcrumbs/breadcrumbs.js';
 import { Footer } from './components/footer/footer.js';
 import { Header } from './components/header/header.js';
 

@@ -1,8 +1,11 @@
 @use 'utils';
 
 .wrapper {
-  @extend %wrapper;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.main {
+  @extend %wrapper;
 }
