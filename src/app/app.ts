@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './components/footer/footer.js';
 import { Header } from './components/header/header.js';
@@ -7,15 +7,7 @@ import { Header } from './components/header/header.js';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, Header, Footer],
-  template: `
-    <div class="wrapper">
-      <app-header />
-      <main class="main">
-        <router-outlet />
-      </main>
-      <app-footer />
-    </div>
-  `,
+  templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {}

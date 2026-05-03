@@ -1,11 +1,13 @@
 @use 'utils';
 
-.wrapper {
+:host {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.main {
+.wrapper {
   @extend %wrapper;
+  width: 100%;
+  padding: 60px 16px 80px 16px;
 }
