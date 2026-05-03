@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@use "modern-normalize";
+@use 'modern-normalize';
 
 :root {
   --wrapper-max-width: 1440px;
   --wrapper-min-width: 380px;
   --color-black: rgb(23 24 28);
-  --color-black-10: rgb(23 24 28 10%);
+  --color-black-10: rgb(23 24 28 / 0.1);
   --color-accent: rgb(33 109 208);
   --color-blue-light: rgb(196, 221, 255);
   --color-white: rgb(255 255 255);
@@ -40,4 +40,11 @@ img {
   display: block;
   height: auto;
   width: 100%;
+}
+
+input[type='search'] {
+  cursor: text;
+  &::-webkit-search-cancel-button {
+    cursor: pointer;
+  }
 }
