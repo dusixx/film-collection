@@ -2,9 +2,8 @@
 @let filteredCount = filteredFilms().length;
 
 <div class="wrapper">
-
   <div class="inputs">
-    <input type="search" class="search-box" appAutofocus placeholder="Search by title..." [value]="searchQuery()"
+    <input type="search" class="search-box" appAutofocus placeholder="Filter by title..." [value]="searchQuery()"
       (input)="handleSearchInput($event)" [disabled]="!query && !filteredCount">
     <label class="favorites-only">
       <input type="checkbox" (change)="handleFavoritesOnlyChange($event)" #ref
