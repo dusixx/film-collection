@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-about',
+  selector: 'app-not-found',
   imports: [],
-  templateUrl: './about.html',
-  styleUrl: './about.scss',
+  templateUrl: './not-found.html',
+  styleUrl: './not-found.scss',
 })
-export class About {
+export class NotFound {
   constructor(private router: Router) {}
 
   goHome() {
