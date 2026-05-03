@@ -1,1 +1,46 @@
-<p>film-details works!</p>
+@let f = film();
+
+<div class="wrapper">
+  @if (f) {
+  <div class="details">
+    <div class="poster">
+      <img [src]="f.posterUrl" />
+    </div>
+    <div>
+      <button class="back" routerLink="/">← Back to list</button>
+      <div class="desc">
+        <h2 class="desc__title">{{ f.title }}</h2>
+        <div class="desc__group">
+          <button class="favorites" (click)="handleToggleFavorite()"
+            [title]="f.isFavorite ? 'remove from favorites' : 'add to favorites'">{{f.isFavorite ? `💙` :
+            `🤍`}}</button>
+          <div class="rating">
+            <span class="rating__score">{{ f.rating }}</span>
+            <span class="rating__votes"><b>{{ votes | formatThousands}}</b> votes</span>
+          </div>
+        </div>
+        <b class="caption">About</b>
+        <ul class="desc__about">
+          <li>
+            <b>Release:</b><span>{{ f.year }}</span>
+          </li>
+          <li>
+            <b>Genre:</b><span>{{ f.genre }}</span>
+          </li>
+          <li>
+            <b>Runtime:</b><span>{{ f.duration | duration}}</span>
+          </li>
+        </ul>
+        <b class="caption">Overview</b>
+        <p class="desc__overview">{{ f.description }}</p>
+      </div>
+    </div>
+  </div>
+  }
+  @else {
+  <div class="not-found">
+    <p>Movie with id&nbsp;<b>"{{rawId}}"</b>&nbsp;not found</p>
+    <button class="back" routerLink="/" style="margin: 0;">← Back to list</button>
+  </div>
+  }
+</div>
