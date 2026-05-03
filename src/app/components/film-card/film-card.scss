@@ -1,5 +1,10 @@
 @use 'utils' as *;
 
+:host {
+  display: flex;
+  height: 100%;
+}
+
 .film-card {
   position: relative;
   cursor: pointer;
@@ -7,8 +12,8 @@
   width: 100%;
 
   @include hover {
-    &:hover img {
-      transform: scale(1.1);
+    img {
+      transform: scale(1.05);
     }
   }
 
@@ -36,23 +41,29 @@
     align-items: center;
     justify-content: center;
     padding: 2px 4px;
-    min-width: 22px;
+    min-width: 30px;
     background-color: var(--color-orange);
     color: white;
     font-size: 14px;
     user-select: none;
+
+    @include hover {
+      cursor: default;
+    }
   }
 
   &__btn {
-    @extend %btn;
+    @extend %btn-base;
     padding: 4px;
     font-size: 18px;
+    background-color: var(--color-gray-light);
   }
 
   &__thumb {
     width: 100%;
     height: fit-content;
     overflow: hidden;
+    border-bottom: 1px solid var(--color-gray-light);
   }
 
   img {
@@ -65,7 +76,12 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding: 14px;
+    padding: 18px;
+    padding-top: 12px;
     background-color: white;
+  }
+
+  &__title {
+    letter-spacing: -0.2px;
   }
 }

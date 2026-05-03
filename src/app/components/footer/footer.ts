@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.scss',
 })
 export class Footer {
-  author = 'dusixx';
-  githubUrl = 'https://github.com/dusixx?tab=repositories';
+  authorUsername = 'dusixx';
+  authorGithubUrl = 'https://github.com/dusixx?tab=repositories';
 }
