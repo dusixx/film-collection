@@ -1,8 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
 import { FilmCard } from '@app/components/film-card/film-card';
 import { FilmService } from '@app/services/film.service';
-import { AutofocusDirective } from '@app/shared/directives/autofocus.directive';
+import { AutofocusDirective } from '@app/shared';
 
 @Component({
   selector: 'app-home',
@@ -12,22 +11,26 @@ import { AutofocusDirective } from '@app/shared/directives/autofocus.directive';
 })
 export class Home {
   private filmService = inject(FilmService);
-  private router = inject(Router);
 
-  public searchQuery = signal<string>('');
+  showFavoritesOnly = signal<boolean>(false);
+  searchQuery = signal<string>('');
 
   public filteredFilms = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
     const allFilms = this.filmService.films();
 
-    return query
-      ? allFilms.filter((film) => {
-          return film.title.toLowerCase().includes(query);
-        })
-      : allFilms;
+    if (query) {
+      return allFilms.filter((film) => {
+        const matchesQuery = film.title.toLowerCase().includes(query);
+        return this.showFavoritesOnly() ? matchesQuery && film.isFavorite : matchesQuery;
+      });
+    } else if (this.showFavoritesOnly()) {
+      return allFilms.filter((film) => film.isFavorite);
+    }
+    return allFilms;
   });
 
-  handleInput(event: Event): void {
+  handleSearchInput(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.searchQuery.set(input.value);
   }
@@ -36,7 +39,8 @@ export class Home {
     this.filmService.toggleFavorite(id);
   }
 
-  showDetails(id: number): void {
-    this.router.navigate(['/films', id]);
+  handleFavoritesOnlyChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.showFavoritesOnly.set(input.checked);
   }
 }

@@ -1,14 +1,28 @@
+@let query = searchQuery();
+@let filteredCount = filteredFilms().length;
+
 <div class="wrapper">
-  <input type="search" class="search-box" appAutofocus placeholder="Search by title..." [value]="searchQuery()"
-    (input)="handleInput($event)">
-  @if (!filteredFilms().length) {
-  <p class="message">Nothing was found for the request "<b>{{searchQuery()}}"</b></p>
+
+  <div class="inputs">
+    <input type="search" class="search-box" appAutofocus placeholder="Search by title..." [value]="searchQuery()"
+      (input)="handleSearchInput($event)" [disabled]="!query && !filteredCount">
+    <label class="favorites-only">
+      <input type="checkbox" (change)="handleFavoritesOnlyChange($event)" #ref
+        [disabled]="query && !filteredCount && !ref.checked">
+      favorites only
+    </label>
+  </div>
+
+  @if (query && !filteredCount) {
+  <p class="not-found">Nothing was found for the search query <b>"{{query}}"</b></p>
+  } @else if(!filteredCount){
+  <p class="not-found">There is nothing in the <b>favorites</b></p>
+
   } @else {
   <ul class="film-cards">
     @for (film of filteredFilms(); track film.id) {
     <li class="film-cards__item">
-      <app-film-card class="film-cards__item" [film]="film" (favoriteToggled)="toggleFavorite($event)"
-        (cardClicked)="showDetails($event)" />
+      <app-film-card [film]="film" (favoriteToggled)="toggleFavorite($event)" />
     </li>
     }
   </ul>
