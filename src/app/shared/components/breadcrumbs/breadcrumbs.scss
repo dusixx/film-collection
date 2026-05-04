@@ -1,0 +1,15 @@
+@use 'utils';
+
+.wrapper {
+  @extend %wrapper;
+  padding-top: 16px;
+  font-size: 14px;
+}
+
+.link {
+  @extend %link-base;
+}
+
+.separator {
+  padding: 0 8px;
+}
