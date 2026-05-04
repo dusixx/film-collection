@@ -1,13 +1,24 @@
 @use 'utils';
 
+:host {
+  background-color: rgb(244, 244, 244);
+  border-bottom: 1px solid rgb(231, 231, 231);
+}
+
 .wrapper {
   @extend %wrapper;
-  padding-top: 16px;
   font-size: 14px;
 }
 
 .link {
   @extend %link-base;
+}
+
+.label,
+.link {
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .separator {

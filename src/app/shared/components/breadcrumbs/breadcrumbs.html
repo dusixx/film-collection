@@ -4,7 +4,10 @@
   @if (!last) {
   <a class="link" [routerLink]="crumb.url">{{ crumb.label }}</a><span class="separator">/</span>
   } @else {
-  <span>{{ crumb.label }}</span>
+  <span class="label">{{ crumb.label }}</span>
+  @if(breadcrumbs.length === 1){
+  <span class="separator">/</span>
+  }
   }
   }
 </div>
