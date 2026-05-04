@@ -1,16 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { HOME_BTN_TEXT } from '@app/shared';
+import { Button } from '@app/shared/components/button/button';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [Button],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
 export class About {
-  private router = inject(Router);
-
-  goHome() {
-    this.router.navigateByUrl('/');
-  }
+  router = inject(Router);
+  homeBtnText = HOME_BTN_TEXT;
 }

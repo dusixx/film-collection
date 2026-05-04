@@ -40,15 +40,6 @@
   padding: 0;
 }
 
-.back {
-  @extend %btn-secondary;
-  margin-bottom: 20px;
-
-  &--invert {
-    @extend %btn-primary;
-  }
-}
-
 .desc {
   display: flex;
   flex-direction: column;

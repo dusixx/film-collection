@@ -4,11 +4,11 @@
   @if (f) {
   <div class="details">
     <div class="poster">
-      <img [src]="f.posterUrl" />
+      <img [src]="f.posterUrl" [alt]="f.title" />
     </div>
     <div>
-      <button class="back" routerLink="/">← Back to list</button>
-      <div class="desc">
+      <app-button [text]="homeBtnText" routerLink="/" variant="secondary" style="margin-bottom: 20px;" />
+      <div class=" desc">
         <h2 class="desc__title">{{ f.title }}</h2>
         <div class="desc__group">
           <app-favorite-toggle class="favorite-toggle" [isFavorite]="f.isFavorite"
@@ -38,8 +38,8 @@
   }
   @else {
   <div class="not-found">
-    <p>Movie with id=<b>"{{rawId}}"</b>not found</p>
-    <button class="back--invert" routerLink="/" style="margin: 0;">← Back to list</button>
+    <p>Movie with id<b> "{{rawId}}" </b>not found</p>
+    <app-button [text]="homeBtnText" routerLink="/" />
   </div>
   }
 </div>
