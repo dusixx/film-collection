@@ -7,6 +7,9 @@
 
 .wrapper {
   @extend %wrapper;
+  display: flex;
+  align-items: center;
+  width: 100%;
   font-size: 14px;
 }
 
@@ -14,9 +17,15 @@
   @extend %link-base;
 }
 
+.label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .label,
 .link {
-  display: inline-block;
+  display: block;
   padding-top: 10px;
   padding-bottom: 10px;
 }

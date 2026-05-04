@@ -20,14 +20,15 @@
 }
 
 %btn-base {
-  cursor: pointer;
-  user-select: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-style: none;
+
   font-family: inherit;
   background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  user-select: none;
 }
 
 %btn-primary {
