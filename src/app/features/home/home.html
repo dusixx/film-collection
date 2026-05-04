@@ -4,11 +4,11 @@
 <div class="wrapper">
   <div class="inputs">
     <input type="search" class="search-box" appAutofocus placeholder="Filter by title..." [value]="searchQuery()"
-      (input)="handleSearchInput($event)" [disabled]="!query && !filteredCount">
+      (input)="onQueryInput($event)" [disabled]="!query && !filteredCount">
     <label class="favorites-only">
-      <input type="checkbox" (change)="handleFavoritesOnlyChange($event)" #ref
+      <input type="checkbox" (change)="onFavoritesOnlyChange($event)" #ref
         [disabled]="query && !filteredCount && !ref.checked">
-      favorites only
+      Favorites only
     </label>
   </div>
 

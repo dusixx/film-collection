@@ -1,7 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { FilmCard } from '@app/components/film-card/film-card';
-import { FilmService } from '@app/services/film.service';
-import { AutofocusDirective } from '@app/shared';
+import { FilmService } from '@app/core';
+import { AutofocusDirective, FilmCard } from '@app/shared';
 
 @Component({
   selector: 'app-home',
@@ -17,30 +16,30 @@ export class Home {
 
   public filteredFilms = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
-    const allFilms = this.filmService.films();
+
+    const allFilms = this.showFavoritesOnly()
+      ? this.filmService.favorites()
+      : this.filmService.films();
 
     if (query) {
       return allFilms.filter((film) => {
-        const matchesQuery = film.title.toLowerCase().includes(query);
-        return this.showFavoritesOnly() ? matchesQuery && film.isFavorite : matchesQuery;
+        return film.title.toLowerCase().includes(query);
       });
-    } else if (this.showFavoritesOnly()) {
-      return allFilms.filter((film) => film.isFavorite);
     }
     return allFilms;
   });
 
-  handleSearchInput(event: Event): void {
+  onQueryInput(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.searchQuery.set(input.value);
   }
 
-  toggleFavorite(id: number): void {
-    this.filmService.toggleFavorite(id);
-  }
-
-  handleFavoritesOnlyChange(event: Event): void {
+  onFavoritesOnlyChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.showFavoritesOnly.set(input.checked);
+  }
+
+  toggleFavorite(id: number): void {
+    this.filmService.toggleFavorite(id);
   }
 }

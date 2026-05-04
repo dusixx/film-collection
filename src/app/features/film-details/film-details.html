@@ -11,9 +11,8 @@
       <div class="desc">
         <h2 class="desc__title">{{ f.title }}</h2>
         <div class="desc__group">
-          <button class="favorites" (click)="handleToggleFavorite()"
-            [title]="f.isFavorite ? 'remove from favorites' : 'add to favorites'">{{f.isFavorite ? `💙` :
-            `🤍`}}</button>
+          <app-favorite-toggle class="favorite-toggle" [isFavorite]="f.isFavorite"
+            (favoriteToggled)="toggleFavorite()" />
           <div class="rating">
             <span class="rating__score">{{ f.rating }}</span>
             <span class="rating__votes"><b>{{ votes | formatThousands}}</b> votes</span>
@@ -39,8 +38,8 @@
   }
   @else {
   <div class="not-found">
-    <p>Movie with id&nbsp;<b>"{{rawId}}"</b>&nbsp;not found</p>
-    <button class="back" routerLink="/" style="margin: 0;">← Back to list</button>
+    <p>Movie with id=<b>"{{rawId}}"</b>not found</p>
+    <button class="back--invert" routerLink="/" style="margin: 0;">← Back to list</button>
   </div>
   }
 </div>

@@ -1,11 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { FilmService } from '@app/services/film.service';
-import { DurationPipe, FormatThousandsPipe, rndInt } from '@app/shared';
+import { FilmService } from '@app/core';
+import { DurationPipe, FavoriteToggle, FormatThousandsPipe, rndInt } from '@app/shared';
 
 @Component({
   standalone: true,
-  imports: [RouterLink, DurationPipe, FormatThousandsPipe],
+  imports: [RouterLink, DurationPipe, FormatThousandsPipe, FavoriteToggle],
   templateUrl: './film-details.html',
   styleUrl: './film-details.scss',
 })
@@ -18,7 +18,7 @@ export class FilmDetails {
   film = computed(() => this.service.getFilmById(this.id));
   votes = rndInt(50_000, 500_000);
 
-  handleToggleFavorite() {
+  toggleFavorite() {
     this.service.toggleFavorite(this.film()!.id);
   }
 }

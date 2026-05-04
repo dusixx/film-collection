@@ -1,13 +1,15 @@
-import { AfterViewInit, Directive, ElementRef } from '@angular/core';
+import { afterEveryRender, Directive, ElementRef, inject } from '@angular/core';
 
 @Directive({
   selector: '[appAutofocus]',
   standalone: true,
 })
-export class AutofocusDirective implements AfterViewInit {
-  constructor(private el: ElementRef<HTMLInputElement>) {}
+export class AutofocusDirective {
+  private el = inject(ElementRef<HTMLInputElement>);
 
-  ngAfterViewInit() {
-    setTimeout(() => this.el.nativeElement.focus());
+  constructor() {
+    afterEveryRender(() => {
+      setTimeout(() => this.el.nativeElement.focus());
+    });
   }
 }

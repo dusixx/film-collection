@@ -33,7 +33,7 @@
   margin-top: 12px;
 }
 
-.favorites {
+.favorite-toggle {
   @extend %btn-base;
   font-size: 20px;
   line-height: 1;
@@ -43,6 +43,10 @@
 .back {
   @extend %btn-secondary;
   margin-bottom: 20px;
+
+  &--invert {
+    @extend %btn-primary;
+  }
 }
 
 .desc {

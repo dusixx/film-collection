@@ -1,5 +1,5 @@
-import { Film } from '@app/models/film.model';
-import { hasOwnKeys, isBoolean, isPositiveInteger, isString } from '@app/shared/utils';
+import { Film } from '@app/core';
+import { hasOwnKeys, isBoolean, isPositiveInteger, isString } from '@app/shared';
 
 export const isFilm = (data: unknown): data is Film => {
   return (
@@ -13,7 +13,7 @@ export const isFilm = (data: unknown): data is Film => {
       'posterUrl',
       'rating',
       'title',
-      'year',
+      'year'
     ) &&
     isPositiveInteger(data.id) &&
     isPositiveInteger(data.year) &&

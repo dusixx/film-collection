@@ -52,8 +52,7 @@
     }
   }
 
-  &__btn {
-    @extend %btn-base;
+  &__favorite-toggle {
     padding: 4px;
     font-size: 18px;
     background-color: var(--color-gray-light);
