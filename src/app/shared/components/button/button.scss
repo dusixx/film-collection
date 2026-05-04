@@ -1,0 +1,13 @@
+@use 'utils';
+
+.base {
+  @extend %btn-base;
+}
+
+.primary {
+  @extend %btn-primary;
+}
+
+.secondary {
+  @extend %btn-secondary;
+}
