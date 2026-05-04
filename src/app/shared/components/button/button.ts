@@ -17,7 +17,7 @@ export class Button {
   className = computed(() => {
     const classes = ['base'];
 
-    if (this.variant() == 'primary') {
+    if (this.variant() === 'primary') {
       classes.push('primary');
     } else {
       classes.push('secondary');
