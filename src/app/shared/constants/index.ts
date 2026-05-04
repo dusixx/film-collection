@@ -1,4 +1,3 @@
-export const ERR_UNKNOWN_ERROR = 'unknown error';
 export const NOT_AVAILABLE = 'n/a';
 export const HOME_BTN_TEXT = '← Back to list';
 

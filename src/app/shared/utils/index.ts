@@ -1,16 +1,4 @@
-import { ERR_UNKNOWN_ERROR, NOT_AVAILABLE } from '../constants';
-
-export const isString = (obj: unknown): obj is string => {
-  return typeof obj === 'string';
-};
-
-export const isError = (obj: unknown): obj is Error => {
-  return obj instanceof Error;
-};
-
-export const getErrorMessage = (e: unknown): string => {
-  return isError(e) ? e.message : isString(e) ? e : ERR_UNKNOWN_ERROR;
-};
+import { NOT_AVAILABLE } from '../constants';
 
 export const minutesToDuration = (mins: number): string => {
   if (mins <= 0) {
