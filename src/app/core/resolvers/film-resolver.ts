@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
-import { FilmService } from '../services/film.service';
+import { FilmService } from '../services/film-service';
 
 const TITLE_FOR_INVALID_ID = '404';
 

@@ -1,6 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Film } from '@app/core';
+import { RouteData } from '@app/shared';
 import { FavoriteToggle } from '../favorite-toggle/favorite-toggle';
 
 @Component({
@@ -12,6 +13,8 @@ import { FavoriteToggle } from '../favorite-toggle/favorite-toggle';
 export class FilmCard {
   film = input.required<Film>();
   favoriteToggled = output<number>();
+
+  filmsPath = `/${RouteData.Home.path}`;
 
   toggleFavorite(): void {
     this.favoriteToggled.emit(this.film().id);

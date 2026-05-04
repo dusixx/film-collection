@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthorInfo } from '@app/shared/constants';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.scss',
 })
 export class Footer {
-  authorUsername = 'dusixx';
-  authorGithubUrl = 'https://github.com/dusixx?tab=repositories';
+  authorUsername = AuthorInfo.GithubUsername;
+  authorGithubUrl = AuthorInfo.GithubRepoUrl;
 }

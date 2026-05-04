@@ -1,20 +1,21 @@
 import { Routes } from '@angular/router';
-import { filmTitleResolver } from './core/resolvers/film-resolver';
+import { filmTitleResolver } from '@app/core';
+import { RouteData } from '@app/shared';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'films',
+    redirectTo: RouteData.Home.path,
     pathMatch: 'full',
   },
   {
-    path: 'films',
-    data: { label: 'Home' },
+    path: RouteData.Home.path,
+    data: { label: RouteData.Home.label },
     children: [
       {
         path: '',
         loadComponent: () => import('@features/home/home').then((m) => m.Home),
-        data: { label: 'Home' },
+        data: { label: RouteData.Home.label },
       },
       {
         path: ':id',
@@ -25,9 +26,9 @@ export const routes: Routes = [
     ],
   },
   {
-    path: 'about',
+    path: RouteData.About.path,
     loadComponent: () => import('@features/about/about').then((m) => m.About),
-    data: { label: 'About' },
+    data: { label: RouteData.About.label },
   },
   {
     path: '**',

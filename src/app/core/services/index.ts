@@ -1,2 +1,2 @@
-export * from './breadcrumbs.service';
-export * from './film.service';
+export * from './breadcrumbs-service';
+export * from './film-service';
