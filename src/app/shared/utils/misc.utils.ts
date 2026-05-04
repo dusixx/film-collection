@@ -1,7 +1,5 @@
 import { isError, isString } from '@app/shared/utils/type-guards.utils';
-
-const ERR_UNKNOWN_ERROR = 'unknown error';
-const NOT_AVAILABLE = 'n/a';
+import { ERR_UNKNOWN_ERROR, NOT_AVAILABLE } from '../constants';
 
 export const getErrorMessage = (e: unknown): string => {
   return isError(e) ? e.message : isString(e) ? e : ERR_UNKNOWN_ERROR;
@@ -27,7 +25,7 @@ export const rndInt = (min: number, max: number): number => {
   return Math.round(min + Math.random() * (max - min));
 };
 
-export const formatThousands = (num: number, separator: string = ' '): string => {
+export const formatThousands = (num: number, separator = ' '): string => {
   const formatter = new Intl.NumberFormat('fr-FR', {
     maximumFractionDigits: 0,
   });
