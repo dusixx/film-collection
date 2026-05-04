@@ -10,20 +10,22 @@ A modern movie catalog application built with **Angular 20+** using **Signals** 
 - **TypeScript Strict Mode** - Full type safety
 - **Mock JSON Data** - 10+ films with realistic data
 
-### 🔵 Prerequisites
+### Prerequisites
 
 - Angular CLI 21+
 - Node.js 20+
 
 ### 🚀 Install & Running
 
-```bash
+```sh
 git clone git@github.com:dusixx/film-collection.git
 cd film-collection
-git checkout dev
 npm i
+```
 
-# Start development server
+#### Start dev server
+
+```sh
 npm start
 ```
 
