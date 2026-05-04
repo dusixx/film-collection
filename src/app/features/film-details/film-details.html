@@ -1,0 +1,45 @@
+@let f = film();
+
+<div class="wrapper">
+  @if (f) {
+  <div class="details">
+    <div class="poster">
+      <img [src]="f.posterUrl" [alt]="f.title" />
+    </div>
+    <div>
+      <app-button [text]="homeBtnText" routerLink="/" variant="secondary" style="margin-bottom: 20px;" />
+      <div class=" desc">
+        <h2 class="desc__title">{{ f.title }}</h2>
+        <div class="desc__group">
+          <app-favorite-toggle class="favorite-toggle" [isFavorite]="f.isFavorite"
+            (favoriteToggled)="toggleFavorite()" />
+          <div class="rating">
+            <span class="rating__score">{{ f.rating }}</span>
+            <span class="rating__votes"><b>{{ votes | formatThousands}}</b> votes</span>
+          </div>
+        </div>
+        <b class="caption">About</b>
+        <ul class="desc__about">
+          <li>
+            <b>Release:</b><span>{{ f.year }}</span>
+          </li>
+          <li>
+            <b>Genre:</b><span>{{ f.genre }}</span>
+          </li>
+          <li>
+            <b>Runtime:</b><span>{{ f.duration | duration}}</span>
+          </li>
+        </ul>
+        <b class="caption">Overview</b>
+        <p class="desc__overview">{{ f.description }}</p>
+      </div>
+    </div>
+  </div>
+  }
+  @else {
+  <div class="not-found">
+    <p>Movie with id<b> "{{rawId}}" </b>not found</p>
+    <app-button [text]="homeBtnText" routerLink="/" />
+  </div>
+  }
+</div>

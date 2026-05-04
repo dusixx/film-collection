@@ -1,0 +1,14 @@
+@let breadcrumbs = breadcrumbsService.breadcrumbs();
+
+<div class="wrapper">
+  @for (crumb of breadcrumbs; let last = $last; track crumb.url) {
+  @if (!last) {
+  <a class="link" [routerLink]="crumb.url">{{ crumb.label }}</a><span class="separator">/</span>
+  } @else {
+  <span class="label">{{ crumb.label }}</span>
+  @if(breadcrumbs.length === 1){
+  <span class="separator">/</span>
+  }
+  }
+  }
+</div>

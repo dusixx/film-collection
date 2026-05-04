@@ -1,0 +1,85 @@
+@use 'utils' as *;
+
+.inputs {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 40px;
+  width: 70%;
+
+  @media (width <=768px) {
+    width: 100%;
+  }
+}
+
+.search-box {
+  @extend %text-input;
+
+  flex-grow: 1;
+  margin: auto;
+  height: 44px;
+  padding-left: 20px;
+  min-width: 320px;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  @include main-transition('box-shadow');
+}
+
+.favorites-only {
+  &:has(:disabled) {
+    opacity: 0.5;
+    cursor: default;
+
+    input[type='checkbox'] {
+      cursor: default;
+    }
+  }
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    width: 16px;
+    aspect-ratio: 1;
+    cursor: pointer;
+  }
+}
+
+.not-found {
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.film-cards {
+  --items-per-row: 4;
+  --gap: 28px;
+
+  display: flex;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  width: 100%;
+
+  &__item {
+    width: calc((100% - (var(--items-per-row) - 1) * var(--gap)) / var(--items-per-row));
+
+    @media (width <=1270px) {
+      --items-per-row: 3;
+    }
+    @media (width <=768px) {
+      --items-per-row: 2;
+    }
+    @media (width <=460px) {
+      --items-per-row: 1;
+    }
+  }
+}

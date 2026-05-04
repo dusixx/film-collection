@@ -1,0 +1,5 @@
+@use 'utils';
+
+.wrapper {
+  @extend %page-info;
+}

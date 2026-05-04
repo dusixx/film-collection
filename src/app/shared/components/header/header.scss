@@ -1,0 +1,47 @@
+@use 'utils' as *;
+
+.header {
+  background-color: var(--color-black);
+}
+
+.wrapper {
+  @extend %wrapper;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+
+  a {
+    padding: 16px 20px;
+    color: var(--color-white);
+    text-decoration: none;
+    opacity: 0.6;
+
+    @include main-transition('opacity');
+
+    @include hover {
+      opacity: 0.8;
+    }
+
+    @media (width <=460px) {
+      padding: 16px;
+    }
+
+    &.active {
+      background-color: var(--color-accent);
+      opacity: 1;
+      cursor: default;
+    }
+  }
+}

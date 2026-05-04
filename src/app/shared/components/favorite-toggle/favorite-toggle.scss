@@ -1,0 +1,7 @@
+@use 'utils';
+
+.button {
+  @extend %btn-base;
+  line-height: 1;
+  padding: 0;
+}

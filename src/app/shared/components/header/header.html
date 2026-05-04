@@ -1,0 +1,9 @@
+<header class="header">
+  <div class="wrapper">
+    <a class="logo" a routerLink="/">▶️ FilmCollection</a>
+    <nav class="nav">
+      <a [routerLink]="homePath" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{homeLabel}}</a>
+      <a [routerLink]="aboutPath" routerLinkActive="active">{{aboutLabel}}</a>
+    </nav>
+  </div>
+</header>

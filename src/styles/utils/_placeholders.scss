@@ -1,0 +1,105 @@
+@use './mixins' as *;
+
+%wrapper {
+  position: relative;
+  overflow: hidden;
+  min-width: var(--wrapper-min-width);
+  max-width: var(--wrapper-max-width);
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+%link-base {
+  text-decoration: none;
+  color: var(--color-accent);
+
+  @include main-transition('color');
+  @include hover {
+    color: var(--color-orange);
+  }
+}
+
+%btn-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: inherit;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+%btn-primary {
+  @extend %btn-base;
+
+  height: 40px;
+  padding: 16px;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border: unset;
+  border-radius: 8px;
+
+  @include main-transition('background-color');
+  @include hover {
+    background-color: var(--color-blue);
+  }
+}
+
+%btn-secondary {
+  @extend %btn-primary;
+
+  color: var(--color-accent);
+  background-color: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+
+  @include main-transition('background-color, color');
+  @include hover {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+  }
+}
+
+%text-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  padding-left: 12px;
+
+  border: unset;
+  box-shadow: 0 0 0 1px var(--color-gray);
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+
+  color: var(--color-black);
+  background-color: var(--color-white);
+
+  appearance: unset;
+  outline: none;
+  border-radius: 12px;
+
+  &::placeholder {
+    opacity: 0.6;
+  }
+  &:focus-visible,
+  &:focus {
+    box-shadow: 0 0 0 3px var(--color-blue-light);
+  }
+}
+
+%page-info {
+  background-color: var(--color-white);
+  border-radius: 12px;
+  margin: auto;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  max-width: 400px;
+  border: 1px solid rgb(227, 227, 227);
+}

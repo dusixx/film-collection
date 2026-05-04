@@ -1,0 +1,10 @@
+@use 'utils';
+
+.wrapper {
+  @extend %page-info;
+}
+
+.desc {
+  text-align: center;
+  line-height: 1.3;
+}
