@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Breadcrumb } from '../models/breadcrumb.model';
 
@@ -8,16 +8,18 @@ import { Breadcrumb } from '../models/breadcrumb.model';
 export class BreadcrumbsService {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
+  private destroyRef = inject(DestroyRef);
 
   private _breadcrumbs = signal<Breadcrumb[]>([]);
   breadcrumbs = this._breadcrumbs.asReadonly();
 
   constructor() {
-    this.router.events.subscribe((event) => {
+    const routerSub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.buildBreadcrumbs();
       }
     });
+    this.destroyRef.onDestroy(() => routerSub.unsubscribe());
     this.buildBreadcrumbs();
   }
 
