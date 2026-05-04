@@ -5,7 +5,7 @@
   overflow: hidden;
   min-width: var(--wrapper-min-width);
   max-width: var(--wrapper-max-width);
-  padding: 0 20px;
+  padding: 0 16px;
   margin: 0 auto;
 }
 
@@ -30,13 +30,28 @@
   background-color: transparent;
 }
 
-%btn-secondary {
+%btn-primary {
   @extend %btn-base;
 
   height: 40px;
   padding: 16px;
-  border: 1px solid var(--color-accent);
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border: unset;
+  border-radius: 8px;
+
+  @include main-transition('background-color');
+  @include hover {
+    background-color: var(--color-blue);
+  }
+}
+
+%btn-secondary {
+  @extend %btn-primary;
+
   color: var(--color-accent);
+  background-color: transparent;
+  border: 1px solid var(--color-accent);
   border-radius: 8px;
 
   @include main-transition('background-color, color');
@@ -71,7 +86,7 @@
   }
   &:focus-visible,
   &:focus {
-    box-shadow: 0 0 0 4px var(--color-blue-light);
+    box-shadow: 0 0 0 3px var(--color-blue-light);
   }
 }
 
@@ -84,6 +99,6 @@
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  width: 400px;
+  max-width: 400px;
   border: 1px solid rgb(227, 227, 227);
 }
