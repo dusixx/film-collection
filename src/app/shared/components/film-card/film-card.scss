@@ -37,8 +37,6 @@
   }
 
   &__rating {
-    @extend %btn-base;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,10 +46,7 @@
     color: white;
     font-size: 14px;
     user-select: none;
-
-    @include hover {
-      cursor: default;
-    }
+    cursor: default;
   }
 
   &__favorite-toggle {
