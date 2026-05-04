@@ -1,2 +1,2 @@
 export * from './duration.pipe';
-export * from './thousands.pipe';
+export * from './format-thousands.pipe';
